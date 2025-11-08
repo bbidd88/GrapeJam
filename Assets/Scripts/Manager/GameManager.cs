@@ -2,6 +2,8 @@ using UnityEngine;
 
 public class GameManager : MonoBehaviour
 {
+    public static GameManager instance;
+
     // Start is called once before the first execution of Update after the MonoBehaviour is created
     public void Awake()
     {
@@ -27,7 +29,5 @@ public class GameManager : MonoBehaviour
     public void Update()
     {
         
-    }
-
-    public static GameManager instance;
+    }    
 }
