@@ -1,16 +1,33 @@
 using UnityEngine;
+using UnityEngine.UI;
 
 public class LobbyCanvas : MonoBehaviour
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] private Button StartButton;
+    [SerializeField] private Button QuitButton;
+
+    private void Awake()
+    {
+        StartButton.onClick.AddListener(StartButton_OnClick);
+        QuitButton.onClick.AddListener(QuitButton_OnClick);
+    }
+    
     void Start()
     {
         
     }
 
-    // Update is called once per frame
+    
     void Update()
     {
         
+    }
+
+    void StartButton_OnClick()
+    {
+
+    }
+    void QuitButton_OnClick()
+    {
     }
 }

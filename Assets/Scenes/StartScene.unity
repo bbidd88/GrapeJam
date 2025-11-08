@@ -234,6 +234,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 4771a381cdc56fc4c9da3088cac3646a, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::LobbyCanvas
+  StartButton: {fileID: 1611623592}
+  QuitButton: {fileID: 1271064357}
 --- !u!1 &725975652
 GameObject:
   m_ObjectHideFlags: 0
