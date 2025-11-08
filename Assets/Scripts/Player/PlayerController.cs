@@ -7,17 +7,23 @@ public class PlayerController : MonoBehaviour
     [SerializeField] private Gun Gun;
     [SerializeField] private float MoveSpeed = 4f;
     [SerializeField] private float JumpSpeed = 4f;
+    [SerializeField] private float ShootTime = 1f;
 
     private Vector3 MoveDirection = Vector3.zero;
     private bool isJumping = false;
+    private float LastShootTime = 0f;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    public void Start()
+    public void Update()
     {
-        
+        if (LastShootTime >= ShootTime)
+        {
+            Shoot();
+            LastShootTime = 0f;
+        }
+
+        LastShootTime += Time.deltaTime;
     }
 
-    // Update is called once per frame
     public void FixedUpdate()
     {
         Move();
@@ -42,15 +48,12 @@ public class PlayerController : MonoBehaviour
         }
     }
 
-    public void OnShoot(InputAction.CallbackContext context)
+    private void Shoot()
     {
         if (Gun == null)
             return;
 
-        if (context.phase == InputActionPhase.Started)
-        {
-            Gun.Shoot();
-        }
+        Gun.Shoot();
     }
 
     private void Move()

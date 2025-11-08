@@ -269,7 +269,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: da8122c08264edc4d9b039c55e06e2c0, type: 3}
   m_Name: 
   m_EditorClassIdentifier: '::'
-  Player: {fileID: 0}
+  Player: {fileID: 1418851157}
   Ratio: 2
   Distance: {x: 0, y: 2, z: -5}
 --- !u!1 &410087039
@@ -560,7 +560,7 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_LocalEulerAnglesHint: {x: 0, y: 0, z: 0}
---- !u!1001 &1970720640
+--- !u!1001 &1405115340
 PrefabInstance:
   m_ObjectHideFlags: 0
   serializedVersion: 2
@@ -568,10 +568,6 @@ PrefabInstance:
     serializedVersion: 3
     m_TransformParent: {fileID: 0}
     m_Modifications:
-    - target: {fileID: 1688046567854051761, guid: deccd4e9f0f3e234f9da6da945c7eed5, type: 3}
-      propertyPath: Bullet
-      value: 
-      objectReference: {fileID: 3148192530013098410, guid: 39d352ac285add649a38bb8fe28a5bed, type: 3}
     - target: {fileID: 4009334834916496705, guid: deccd4e9f0f3e234f9da6da945c7eed5, type: 3}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -621,6 +617,11 @@ PrefabInstance:
     m_AddedGameObjects: []
     m_AddedComponents: []
   m_SourcePrefab: {fileID: 100100000, guid: deccd4e9f0f3e234f9da6da945c7eed5, type: 3}
+--- !u!1 &1418851157 stripped
+GameObject:
+  m_CorrespondingSourceObject: {fileID: 8166383332998030494, guid: deccd4e9f0f3e234f9da6da945c7eed5, type: 3}
+  m_PrefabInstance: {fileID: 1405115340}
+  m_PrefabAsset: {fileID: 0}
 --- !u!1660057539 &9223372036854775807
 SceneRoots:
   m_ObjectHideFlags: 0
@@ -629,4 +630,4 @@ SceneRoots:
   - {fileID: 410087041}
   - {fileID: 832575519}
   - {fileID: 559141894}
-  - {fileID: 1970720640}
+  - {fileID: 1405115340}
