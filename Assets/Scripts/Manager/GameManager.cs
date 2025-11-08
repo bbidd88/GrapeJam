@@ -1,33 +1,14 @@
 using UnityEngine;
 
-public class GameManager : MonoBehaviour
-{
-    public static GameManager instance;
-
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    public void Awake()
+public class GameManager : YManager
+{    
+    public override void OnAwake()
     {
-        if (instance == null)
-        {
-            instance = this;
-            DontDestroyOnLoad(gameObject);
-        }
-        else
-        {
-            if (instance != this)
-                Destroy(gameObject);
-        }        
+
     }
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    public void Start()
+    public override void OnStart()
     {
         
     }
-
-    // Update is called once per frame
-    public void Update()
-    {
-        
-    }    
 }
