@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
+    [SerializeField] private Gun Gun;
     [SerializeField] private float MoveSpeed = 4f;
     [SerializeField] private float JumpSpeed = 4f;
 
@@ -30,7 +31,7 @@ public class PlayerController : MonoBehaviour
     public void OnJump(InputAction.CallbackContext context)
     {
         var rigidbody = GetComponent<Rigidbody>();
-        // 점프키가 처음 눌린 순간에만 실행되도록 함
+        // 처음 눌린 순간에만 실행되도록 함
         if (context.phase == InputActionPhase.Started && !isJumping)
         {
             isJumping = true;
@@ -38,6 +39,17 @@ public class PlayerController : MonoBehaviour
                 rigidbody.linearVelocity.x,
                 JumpSpeed,
                 rigidbody.linearVelocity.y);
+        }
+    }
+
+    public void OnShoot(InputAction.CallbackContext context)
+    {
+        if (Gun == null)
+            return;
+
+        if (context.phase == InputActionPhase.Started)
+        {
+            Gun.Shoot();
         }
     }
 
