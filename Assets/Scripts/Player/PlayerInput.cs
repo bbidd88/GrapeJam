@@ -4,6 +4,7 @@ using UnityEngine.InputSystem;
 public class PlayerInput : MonoBehaviour
 {
     [SerializeField] private float MoveSpeed = 4f;
+    [SerializeField] private float JumpForce = 4f;
 
     private Vector3 MoveDirection;
 
@@ -14,7 +15,7 @@ public class PlayerInput : MonoBehaviour
     }
 
     // Update is called once per frame
-    public void Update()
+    public void FixedUpdate()
     {
         bool hasControl = (MoveDirection != Vector3.zero);
         if (hasControl)
@@ -35,6 +36,10 @@ public class PlayerInput : MonoBehaviour
 
     public void OnJump(InputValue InValue)
     {
-
+        var rigidbody = GetComponent<Rigidbody>();
+        if (rigidbody != null)
+        {
+            rigidbody.AddForce(Vector3.up * JumpForce, ForceMode.Impulse);
+        }        
     }   
 }
