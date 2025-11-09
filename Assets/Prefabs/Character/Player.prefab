@@ -140,10 +140,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: d7d19835c110c1b4b99523a42429591b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInput
-  Gun: {fileID: 9088302909708592287}
   MoveSpeed: 4
   JumpSpeed: 5.5
-  ShootTime: 1
 --- !u!114 &7874603568113832307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,6 +159,8 @@ MonoBehaviour:
     MaxHp: 100
     AttackPower: 10
     DefensePower: 0
+  Gun: {fileID: 9088302909708592287}
+  ShootTime: 1
 --- !u!136 &6388994769681376307
 CapsuleCollider:
   m_ObjectHideFlags: 0

@@ -27,6 +27,9 @@ public abstract class YCharacter : MonoBehaviour
 
     protected virtual void Attack(YCharacter InTarget)
     {
+        if (!InTarget)
+            return;
+
         InTarget.Damaged(Stat.AttackPower);
     }
 

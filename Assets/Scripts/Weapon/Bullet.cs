@@ -1,19 +1,21 @@
 using UnityEngine;
 using UnityEngine.EventSystems;
 using UnityEngine.Rendering;
+using static Bullet;
 
 public class Bullet : MonoBehaviour
 {
     [SerializeField] private float MoveSpeed = 3f;
     [SerializeField] private float LifeTime = 10f;
 
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    public delegate void AttackFunction(YCharacter InTarget);
+    private AttackFunction _attackFunction;
+
     private void Start()
     {
         Destroy(gameObject, LifeTime);
     }
 
-    // Update is called once per frame
     private void FixedUpdate()
     {
         LifeTime -= Time.deltaTime;
@@ -25,9 +27,20 @@ public class Bullet : MonoBehaviour
 
     private void OnCollisionEnter(Collision collision)
     {
-        if (collision.gameObject.CompareTag("Moster"))
+        if (collision.gameObject.CompareTag("Monster"))
         {
+            var monaterCharacter = collision.gameObject.GetComponent<YCharacter>();
+            if (monaterCharacter)
+            {
+                _attackFunction?.Invoke(monaterCharacter);
+            }            
+
             Destroy(gameObject);
         }        
+    }
+
+    public void SetAttachFunction(AttackFunction InAttackFunction)
+    {
+        _attackFunction = InAttackFunction;
     }
 }
