@@ -4,4 +4,5 @@ using UnityEngine;
 public class StageData : ScriptableObject
 {
     public string Name;
+    public int MonsterCount = 10;
 }
