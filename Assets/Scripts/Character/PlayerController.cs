@@ -1,14 +1,14 @@
 using UnityEngine;
-using UnityEngine.EventSystems;
 using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
     [SerializeField] private float MoveSpeed = 4f;
     [SerializeField] private float JumpSpeed = 4f;
+    [SerializeField] private int MaxJumpCount = 3;
 
     private Vector3 MoveDirection = Vector3.zero;
-    private bool isJumping = false;
+    private int JumpCount = 0;
 
     public void FixedUpdate()
     {
@@ -24,9 +24,9 @@ public class PlayerController : MonoBehaviour
     {
         var rigidbody = GetComponent<Rigidbody>();
         // 처음 눌린 순간에만 실행되도록 함
-        if (context.phase == InputActionPhase.Started && !isJumping)
+        if (context.phase == InputActionPhase.Started && (JumpCount < MaxJumpCount))
         {
-            isJumping = true;
+            JumpCount++;
             rigidbody.linearVelocity = new Vector3(
                 rigidbody.linearVelocity.x,
                 JumpSpeed,
@@ -43,9 +43,6 @@ public class PlayerController : MonoBehaviour
             velocity.y = rigidbody.linearVelocity.y;
 
             rigidbody.linearVelocity = velocity;
-
-            //var move = MoveDirection * MoveSpeed * Time.fixedDeltaTime;
-            //rigidbody.MovePosition(rigidbody.position + move);
         }
     }
 
@@ -53,7 +50,7 @@ public class PlayerController : MonoBehaviour
     {
         if (collision.gameObject.CompareTag("Ground"))
         {
-            isJumping = false;
+            JumpCount = 0;
         }
     }
 }
