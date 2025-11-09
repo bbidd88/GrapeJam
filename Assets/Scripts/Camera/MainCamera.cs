@@ -10,7 +10,7 @@ public class MainCamera : MonoBehaviour
     private const float RotSensitive = 3f;
     private const float SmoothTime = 0.12f;
 
-    public (float x, float y) Axis;
+    private (float x, float y) Axis;
     private Vector3 TargetRotation;
     private Vector3 CurVel;
 
@@ -32,7 +32,6 @@ public class MainCamera : MonoBehaviour
 
         TargetRotation = Vector3.SmoothDamp(TargetRotation, new Vector3(Axis.x, Axis.y), ref CurVel, SmoothTime);
         transform.eulerAngles = TargetRotation;
-        //Player.transform.eulerAngles = TargetRotation;
 
         transform.position = Player.transform.position - (transform.forward * Distance);
     }
