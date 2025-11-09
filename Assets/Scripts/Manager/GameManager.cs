@@ -24,18 +24,19 @@ public class GameManager : YManager, YIManagerUpdate
         Time.timeScale = IsPaused ? 0.0f : 1.0f;
     }
 
-    public void RetryStage()
-    {
-        Info.Kill = 0;
-    }
-
-    public override void OnAwake()
+    public void ClearStage()
     {
         SetPause(false);
         CurStageIndex = 0;
         Info.Kill = 0;
         Info.Exp = 0;
         Info.Gold = 0;
+    }
+
+    public override void OnAwake()
+    {
+        ClearStage();
+        
     }
 
     public override void OnStart()

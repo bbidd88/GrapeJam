@@ -20,7 +20,7 @@ public class Monster : YCharacter
 
         if (IsDeath())
         {
-            // Manager 에 넘긴다.
+            YGame.Get<GameManager>().OnMounstKill();            
         }
     }
 }

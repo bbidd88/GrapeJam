@@ -27,6 +27,7 @@ public class LobbyCanvas : YCanvas
     void StartButton_OnClick()
     {
         SceneManager.LoadScene("GameScene");
+        YGame.Get<GameManager>().ClearStage();
     }
     void QuitButton_OnClick()
     {

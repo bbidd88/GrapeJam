@@ -15,7 +15,7 @@ public class StageClearPopup : YPopup
 
     void RetryButton_OnClick()
     {
-        YGame.Get<GameManager>().RetryStage();
+        YGame.Get<GameManager>().ClearStage();
         Close();
     }
 
