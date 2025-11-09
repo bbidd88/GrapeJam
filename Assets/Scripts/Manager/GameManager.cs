@@ -4,7 +4,7 @@ using System.Collections.Generic;
 
 public struct GameInfo
 {
-    public float StageElapsedTime;
+    public int Kill;
     public int Exp;
     public int Gold;
 }
@@ -18,7 +18,7 @@ public class GameManager : YManager, YIManagerUpdate
     }
     public override void OnAwake()
     {
-        Info.StageElapsedTime = 0.0f;
+        Info.Kill = 0;
         Info.Exp = 0;
         Info.Gold = 0;
     }
@@ -31,13 +31,12 @@ public class GameManager : YManager, YIManagerUpdate
     public void OnUpdate()
     {
         //
-        UpdateTime();
+        
     }
 
-    private void UpdateTime()
+    public void AddKill(int InKill)
     {
-        Info.StageElapsedTime += Time.deltaTime;
-        // 
+        Info.Kill += InKill;
     }
 
     public void AddGold(int InGold)
