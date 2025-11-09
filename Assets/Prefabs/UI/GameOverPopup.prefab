@@ -251,6 +251,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 854daf7c808d95947ad997772a68ba53, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::GameOverPopup
+  RetryButton: {fileID: 9138394109093640023}
+  QuitButton: {fileID: 8156520043679566188}
 --- !u!1 &3750451367155978525
 GameObject:
   m_ObjectHideFlags: 0
@@ -385,7 +387,7 @@ GameObject:
   - component: {fileID: 8059616770697333866}
   - component: {fileID: 9138394109093640023}
   m_Layer: 5
-  m_Name: ReturnButton
+  m_Name: RetryButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -558,7 +560,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Return
+  m_text: Retry
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
