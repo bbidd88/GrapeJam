@@ -1,16 +1,27 @@
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-public class GameOverPopup : MonoBehaviour
+public class GameOverPopup : YPopup
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
-    void Start()
+    [SerializeField] private Button RetryButton;
+    [SerializeField] private Button QuitButton;
+
+    void Awake()
     {
-        
+        RetryButton.onClick.AddListener(RetryButton_OnClick);
+        QuitButton.onClick.AddListener(QuitButton_OnClick);
     }
 
-    // Update is called once per frame
-    void Update()
+    void RetryButton_OnClick()
     {
-        
+        YGame.Get<GameManager>().ClearStage();
+        Close();
+    }
+
+    void QuitButton_OnClick()
+    {
+        SceneManager.LoadScene("StartScene");
+        Close();
     }
 }

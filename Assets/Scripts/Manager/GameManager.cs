@@ -9,6 +9,14 @@ public struct GameInfo
     public int Gold;
 }
 
+public enum StageState
+{ 
+    Play,
+    Clear,
+    Fail,
+}
+
+
 public class GameManager : YManager, YIManagerUpdate
 {
     private GameInfo Info;
@@ -17,6 +25,8 @@ public class GameManager : YManager, YIManagerUpdate
         return Info;
     }
 
+    public float ElapsedTime { get; private set; } = 0.0f;
+    StageState StageState = StageState.Play;
     int CurStageIndex = 0;
 
     public void SetPause(bool IsPaused)
@@ -31,12 +41,13 @@ public class GameManager : YManager, YIManagerUpdate
         Info.Kill = 0;
         Info.Exp = 0;
         Info.Gold = 0;
+        ElapsedTime = 0.0f;
+        StageState = StageState.Play;
     }
 
     public override void OnAwake()
     {
         ClearStage();
-        
     }
 
     public override void OnStart()
@@ -47,12 +58,17 @@ public class GameManager : YManager, YIManagerUpdate
     public void OnUpdate()
     {
         //        
+        if(StageState == StageState.Play)
+        {
+            ElapsedTime += Time.deltaTime;
+        }
+        UpdateStageState();
     }
     
     public void OnMounstKill()
     {
         Info.Kill++;
-        CheckStageClear();
+        UpdateStageState();
     }
 
     public void AddGold(int InGold)
@@ -77,12 +93,30 @@ public class GameManager : YManager, YIManagerUpdate
         return stageContainer.StageDatas[CurStageIndex];
     }
 
-    private void CheckStageClear()
+    private void UpdateStageState()
     {
-        int maxKillCount = GetCurStageData()?.MonsterCount ?? 0;
-        if (Info.Kill < maxKillCount)
+        if (StageState != StageState.Play)
             return;
 
-        GameObject.Find("FieldCanvas")?.GetComponent<FieldCanvas>()?.OpenStageClearPopup();
+        StageData stageData = GetCurStageData();
+        if (stageData == null)
+            return;
+        
+        if(ElapsedTime >= stageData.TimeLimitSec)
+        {
+            ElapsedTime = stageData.TimeLimitSec;
+            StageState = StageState.Fail;
+            GameObject.Find("FieldCanvas")?.GetComponent<FieldCanvas>()?.OpenGameOverPopup();
+            return;
+        }
+
+        int maxKillCount = stageData.MonsterCount;
+        if (Info.Kill >= maxKillCount)
+        {
+            StageState = StageState.Clear;
+            GameObject.Find("FieldCanvas")?.GetComponent<FieldCanvas>()?.OpenStageClearPopup();
+            return;
+        }
+        
     }
 }
