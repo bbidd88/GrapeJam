@@ -66,10 +66,12 @@ public class FieldCanvas : YCanvas
     public void OpenStageClearPopup()
     {
         MonoBehaviour.Instantiate(StageClearPopup, PopupRoot.transform);
+        YGame.Get<GameManager>().SetPause(true);
     }
 
     public void OpenGameOverPopup()
     {
         MonoBehaviour.Instantiate(GameOverPopup, PopupRoot.transform);
+        YGame.Get<GameManager>().SetPause(true);
     }
 }
