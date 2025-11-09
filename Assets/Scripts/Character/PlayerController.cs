@@ -17,7 +17,15 @@ public class PlayerController : MonoBehaviour
 
     public void OnMove(InputAction.CallbackContext InContext)
     {
+        var mainCamera = GameObject.Find("@MainCamera");
+        if (!mainCamera)
+            return;
+
         MoveDirection = InContext.ReadValue<Vector3>();
+
+        //float angle = Vector3.SignedAngle(Vector3.up, mainCamera.transform.position, transform.position);
+        float angle = mainCamera.transform.eulerAngles.y;
+        transform.Rotate(Vector3.up, angle);
     }
 
     public void OnJump(InputAction.CallbackContext context)
