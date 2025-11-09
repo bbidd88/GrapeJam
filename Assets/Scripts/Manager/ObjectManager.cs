@@ -2,10 +2,10 @@ using UnityEngine;
 
 public class ObjectManager : YManager, YIManagerUpdate
 {
-    private const float ResponeTime = 3f;
-    private const float MaxSpownDistance = 30f;
-    private float LastResponeTime = 0f;
-    private int CurSponeMonsterCount = 0;
+    private const float RespawnTime = 3f;
+    private (float min, float max) SpawnDistance = (5f, 30f);
+    private float LastRespawnTime = 0f;
+    private int CurSpawnMonsterCount = 0;
 
 
     public override void OnAwake()
@@ -24,17 +24,17 @@ public class ObjectManager : YManager, YIManagerUpdate
             return;
 
         var killCount = YGame.Get<GameManager>().GetInfo().Kill;
-        if (killCount + CurSponeMonsterCount >= stageData.MonsterCount)
+        if (killCount + CurSpawnMonsterCount >= stageData.MonsterCount)
             return;
 
-        if (LastResponeTime >= ResponeTime)
+        if (LastRespawnTime >= RespawnTime)
         {
-            LastResponeTime = 0f;
+            LastRespawnTime = 0f;
             MonsterRespown();
             return;
         }
 
-        LastResponeTime += Time.deltaTime;
+        LastRespawnTime += Time.deltaTime;
     }
 
     private void MonsterRespown()
@@ -43,11 +43,11 @@ public class ObjectManager : YManager, YIManagerUpdate
         if (!stageData)
             return;
 
-        if (stageData.SpownMonsterList.Count <= 0)
+        if (stageData.SpawnMonsterList.Count <= 0)
             return;
 
         var randMonster = 
-                stageData.SpownMonsterList[Random.Range(0, stageData.SpownMonsterList.Count - 1)];
+                stageData.SpawnMonsterList[Random.Range(0, stageData.SpawnMonsterList.Count - 1)];
         if (!randMonster)
             return;
 
@@ -56,9 +56,9 @@ public class ObjectManager : YManager, YIManagerUpdate
             return;
 
         var ramdomDirection = new Vector3(Random.Range(-1f, 1f), Random.Range(-1f, 1f), Random.Range(-1f, 1f));
-        var position = player.transform.position + (ramdomDirection * Random.Range(0f, MaxSpownDistance));
+        var position = player.transform.position + (ramdomDirection * Random.Range(SpawnDistance.min, SpawnDistance.max));
         MonoBehaviour.Instantiate(randMonster, position, Quaternion.identity);
 
-        CurSponeMonsterCount++;
+        CurSpawnMonsterCount++;
     }
 }
