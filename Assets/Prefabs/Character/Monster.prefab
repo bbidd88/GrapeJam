@@ -101,7 +101,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::Monster
   Name: Monster
   Stat:
-    MaxHp: 100
+    MaxHp: 10
     AttackPower: 5
     DefensePower: 0
 --- !u!114 &29121129466475063

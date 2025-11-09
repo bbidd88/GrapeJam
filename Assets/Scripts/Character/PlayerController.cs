@@ -4,25 +4,11 @@ using UnityEngine.InputSystem;
 
 public class PlayerController : MonoBehaviour
 {
-    [SerializeField] private Gun Gun;
     [SerializeField] private float MoveSpeed = 4f;
     [SerializeField] private float JumpSpeed = 4f;
-    [SerializeField] private float ShootTime = 1f;
 
     private Vector3 MoveDirection = Vector3.zero;
     private bool isJumping = false;
-    private float LastShootTime = 0f;
-
-    public void Update()
-    {
-        if (LastShootTime >= ShootTime)
-        {
-            Shoot();
-            LastShootTime = 0f;
-        }
-
-        LastShootTime += Time.deltaTime;
-    }
 
     public void FixedUpdate()
     {
@@ -46,14 +32,6 @@ public class PlayerController : MonoBehaviour
                 JumpSpeed,
                 rigidbody.linearVelocity.y);
         }
-    }
-
-    private void Shoot()
-    {
-        if (!Gun)
-            return;
-
-        Gun.Shoot();
     }
 
     private void Move()
