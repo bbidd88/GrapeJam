@@ -1,7 +1,9 @@
+using System;
 using UnityEngine;
 
 public abstract class YCharacter : MonoBehaviour
 {
+    [Serializable]
     public struct CharacterStat
     {
         public int MaxHp;
@@ -10,9 +12,12 @@ public abstract class YCharacter : MonoBehaviour
     }
 
     [SerializeField] private string Name;
-    [SerializeField] public CharacterStat Stat { get; private set; }
+    [SerializeField] public CharacterStat Stat;
 
-    public int CurHp { get; private set; }
+    public int CurHp { get; protected set; } = 0;
+    public int Exp { get; protected set; } = 0;
+    public int Level { get; protected set; } = 1;
+    public int Gold { get; protected set; } = 0;
 
     private void Start()
     {
@@ -21,8 +26,11 @@ public abstract class YCharacter : MonoBehaviour
 
     private void Update()
     {
-        if (CurHp <= 0)
+        if (IsDeath())
+        {
+            Destroy(gameObject);
             return;
+        }            
     }
 
     protected virtual void Attack(YCharacter InTarget)
@@ -40,7 +48,11 @@ public abstract class YCharacter : MonoBehaviour
         if (CurHp > 0)
             return;
 
-        CurHp = 0;
-        Destroy(gameObject);
+        CurHp = 0;        
+    }
+
+    public bool IsDeath()
+    {
+        return CurHp <= 0;
     }
 }

@@ -50,7 +50,7 @@ public class PlayerController : MonoBehaviour
 
     private void Shoot()
     {
-        if (Gun == null)
+        if (!Gun)
             return;
 
         Gun.Shoot();
@@ -58,9 +58,8 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
-        // transform.Translate(MoveDirection * MoveSpeed *  Time.deltaTime);
         var rigidbody = GetComponent<Rigidbody>();
-        if (rigidbody != null)
+        if (rigidbody)
         {
             var move = MoveDirection * MoveSpeed * Time.fixedDeltaTime;
             rigidbody.MovePosition(rigidbody.position + move);
