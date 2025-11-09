@@ -7,7 +7,7 @@ public class LobbyCanvas : YCanvas
     [SerializeField] private Button StartButton;
     [SerializeField] private Button QuitButton;
 
-    private void Awake()
+    void Awake()
     {
         StartButton.onClick.AddListener(StartButton_OnClick);
         QuitButton.onClick.AddListener(QuitButton_OnClick);
