@@ -1,8 +1,7 @@
 fileFormatVersion: 2
-guid: 5ff823f546b52574a931e1d9b44290a6
-timeCreated: 1570802986
-licenseType: Store
+guid: b1b9c1f0ea1fcae439ed1a4d44ff05fd
 AudioImporter:
+  externalObjects: {}
   serializedVersion: 6
   defaultSettings:
     loadType: 0
@@ -23,8 +22,8 @@ AudioImporter:
   assetBundleVariant: 
 AssetOrigin:
   serializedVersion: 1
-  productId: 155776
-  packageName: Free Sound Effects Pack
+  productId: 177096
+  packageName: Shooting Sound
   packageVersion: 1.0
-  assetPath: Assets/Free Pack/Cannon impact 9.wav
-  uploadId: 333958
+  assetPath: Assets/ShootingSound/magic_01.wav
+  uploadId: 385456

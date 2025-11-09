@@ -1,8 +1,7 @@
 fileFormatVersion: 2
-guid: e11a5a019377fbd4c81caa0adcb4c236
-timeCreated: 1570803046
-licenseType: Store
+guid: b37cdb80006c58f479b1c7f798d98959
 AudioImporter:
+  externalObjects: {}
   serializedVersion: 6
   defaultSettings:
     loadType: 0
@@ -21,10 +20,3 @@ AudioImporter:
   userData: 
   assetBundleName: 
   assetBundleVariant: 
-AssetOrigin:
-  serializedVersion: 1
-  productId: 155776
-  packageName: Free Sound Effects Pack
-  packageVersion: 1.0
-  assetPath: Assets/Free Pack/Bullet Impact 21.wav
-  uploadId: 333958
