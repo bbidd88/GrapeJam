@@ -8,5 +8,6 @@ public class StageData : ScriptableObject
 {
     public string Name;
     public int MonsterCount = 10;
+    public int SpawnMonsterCount = 30;
     public List<GameObject> SpawnMonsterList;
 }

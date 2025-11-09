@@ -24,7 +24,7 @@ public class ObjectManager : YManager, YIManagerUpdate
             return;
 
         var killCount = YGame.Get<GameManager>().GetInfo().Kill;
-        if (killCount + CurSpawnMonsterCount >= stageData.MonsterCount)
+        if (killCount + CurSpawnMonsterCount >= stageData.SpawnMonsterCount)
             return;
 
         if (LastRespawnTime >= RespawnTime)

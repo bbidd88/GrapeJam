@@ -7,13 +7,17 @@ public class Bullet : MonoBehaviour
 {
     [SerializeField] private float MoveSpeed = 3f;
     [SerializeField] private float LifeTime = 10f;
+    [SerializeField] private AudioClip FireSound;
+    [SerializeField] private AudioClip CollisionSound;
 
     public delegate void AttackFunction(YCharacter InTarget);
     private AttackFunction _attackFunction;
 
     private void Start()
     {
-        Destroy(gameObject, LifeTime);
+        YGame.Get<AudioManager>().PlaySound(FireSound);
+
+        Destroy(gameObject, LifeTime);        
     }
 
     private void FixedUpdate()
@@ -33,8 +37,9 @@ public class Bullet : MonoBehaviour
             if (monaterCharacter)
             {
                 _attackFunction?.Invoke(monaterCharacter);
-            }            
+            }
 
+            YGame.Get<AudioManager>().PlaySound(CollisionSound);
             Destroy(gameObject);
         }        
     }

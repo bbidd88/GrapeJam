@@ -70,6 +70,8 @@ MonoBehaviour:
   m_EditorClassIdentifier: '::'
   MoveSpeed: 10
   LifeTime: 10
+  FireSound: {fileID: 8300000, guid: 89dc6bbba2ae6c54a9e835dbe6fbf288, type: 3}
+  CollisionSound: {fileID: 8300000, guid: 80d3799791748ac42b3ec097c17a2383, type: 3}
 --- !u!54 &4308373057494854049
 Rigidbody:
   m_ObjectHideFlags: 0
