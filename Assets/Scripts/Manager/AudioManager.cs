@@ -24,7 +24,6 @@ public class AudioManager : YManager, YIManagerUpdate
         if (!audioSource)
             return;
 
-        audioSource.Stop();
         audioSource.PlayOneShot(InSound);
     }
 }
