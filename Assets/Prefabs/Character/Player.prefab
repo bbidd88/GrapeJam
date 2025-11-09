@@ -162,7 +162,7 @@ MonoBehaviour:
     DefensePower: 0
   Gun: {fileID: 9088302909708592287}
   ShootTime: 1
-  OneTimeShootCount: 3
+  OneTimeShootCount: 1
   OneTimeShootInterval: 0.1
 --- !u!136 &6388994769681376307
 CapsuleCollider:
