@@ -8,13 +8,13 @@ public class Bullet : MonoBehaviour
     [SerializeField] private float LifeTime = 10f;
 
     // Start is called once before the first execution of Update after the MonoBehaviour is created
-    public void Start()
+    private void Start()
     {
         Destroy(gameObject, LifeTime);
     }
 
     // Update is called once per frame
-    public void FixedUpdate()
+    private void FixedUpdate()
     {
         LifeTime -= Time.deltaTime;
         if (LifeTime <= 0f)

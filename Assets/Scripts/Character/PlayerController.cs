@@ -58,13 +58,12 @@ public class PlayerController : MonoBehaviour
 
     private void Move()
     {
+        // transform.Translate(MoveDirection * MoveSpeed *  Time.deltaTime);
         var rigidbody = GetComponent<Rigidbody>();
         if (rigidbody != null)
         {
-            var velocity = MoveDirection * MoveSpeed;
-            velocity.y = rigidbody.linearVelocity.y;
-
-            rigidbody.linearVelocity = velocity;
+            var move = MoveDirection * MoveSpeed * Time.fixedDeltaTime;
+            rigidbody.MovePosition(rigidbody.position + move);
         }
     }
 

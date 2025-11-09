@@ -6,7 +6,7 @@ public class MainCamera : MonoBehaviour
     [SerializeField] private Vector3 Distance = Vector3.zero;
 
     // Update is called once per frame
-    void Update()
+    private void Update()
     {
         if  (Player != null)
         {
