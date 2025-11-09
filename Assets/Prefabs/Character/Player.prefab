@@ -14,6 +14,7 @@ GameObject:
   - component: {fileID: 138410483163530611}
   - component: {fileID: 7874603568113832307}
   - component: {fileID: 6388994769681376307}
+  - component: {fileID: 8272886360133119173}
   m_Layer: 0
   m_Name: Player
   m_TagString: Player
@@ -63,7 +64,7 @@ Rigidbody:
   m_UseGravity: 1
   m_IsKinematic: 0
   m_Interpolate: 0
-  m_Constraints: 80
+  m_Constraints: 0
   m_CollisionDetection: 0
 --- !u!114 &8341292485183832646
 MonoBehaviour:
@@ -175,13 +176,34 @@ CapsuleCollider:
     serializedVersion: 2
     m_Bits: 0
   m_LayerOverridePriority: 0
-  m_IsTrigger: 0
+  m_IsTrigger: 1
   m_ProvidesContacts: 0
   m_Enabled: 1
   serializedVersion: 2
   m_Radius: 0.3
   m_Height: 1.6
   m_Direction: 1
+  m_Center: {x: 0, y: 0.8, z: 0}
+--- !u!135 &8272886360133119173
+SphereCollider:
+  m_ObjectHideFlags: 0
+  m_CorrespondingSourceObject: {fileID: 0}
+  m_PrefabInstance: {fileID: 0}
+  m_PrefabAsset: {fileID: 0}
+  m_GameObject: {fileID: 8166383332998030494}
+  m_Material: {fileID: 0}
+  m_IncludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_ExcludeLayers:
+    serializedVersion: 2
+    m_Bits: 0
+  m_LayerOverridePriority: 0
+  m_IsTrigger: 0
+  m_ProvidesContacts: 0
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Radius: 0.5
   m_Center: {x: 0, y: 0.8, z: 0}
 --- !u!1001 &5416145703575434477
 PrefabInstance:
@@ -209,7 +231,7 @@ PrefabInstance:
       objectReference: {fileID: 0}
     - target: {fileID: 945785166790287907, guid: 4785d765e4c62d3448a6cac2ad1fec85, type: 3}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 3821903012885647474, guid: 4785d765e4c62d3448a6cac2ad1fec85, type: 3}
       propertyPath: Bullet

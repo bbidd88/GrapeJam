@@ -61,8 +61,13 @@ public class PlayerController : MonoBehaviour
         var rigidbody = GetComponent<Rigidbody>();
         if (rigidbody)
         {
-            var move = MoveDirection * MoveSpeed * Time.fixedDeltaTime;
-            rigidbody.MovePosition(rigidbody.position + move);
+            var velocity = MoveDirection * MoveSpeed;
+            velocity.y = rigidbody.linearVelocity.y;
+
+            rigidbody.linearVelocity = velocity;
+
+            //var move = MoveDirection * MoveSpeed * Time.fixedDeltaTime;
+            //rigidbody.MovePosition(rigidbody.position + move);
         }
     }
 
