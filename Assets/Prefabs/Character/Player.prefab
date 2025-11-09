@@ -142,6 +142,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::PlayerInput
   MoveSpeed: 4
   JumpSpeed: 5.5
+  MaxJumpCount: 3
 --- !u!114 &7874603568113832307
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -161,6 +162,8 @@ MonoBehaviour:
     DefensePower: 0
   Gun: {fileID: 9088302909708592287}
   ShootTime: 1
+  OneTimeShootCount: 3
+  OneTimeShootInterval: 0.1
 --- !u!136 &6388994769681376307
 CapsuleCollider:
   m_ObjectHideFlags: 0
