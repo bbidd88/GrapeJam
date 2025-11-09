@@ -5,6 +5,7 @@ using UnityEngine;
 public abstract class YManager
 {
     public abstract void OnAwake();
+    
     public abstract void OnStart();    
 }
 
