@@ -32,7 +32,6 @@ public class FieldCanvas : YCanvas
 
     void PasueButton_OnClick()
     {
-        //SceneManager.LoadScene("StartScene");
         MonoBehaviour.Instantiate(MenuPoup, PopupRoot.transform);
         YGame.Get<GameManager>().SetPause(true);
     }
@@ -47,5 +46,10 @@ public class FieldCanvas : YCanvas
         int maxKill = stageData.MonsterCount;
         
         KillCountText.text = string.Format("{0} / {1}", curKill, maxKill);
+    }
+
+    public void OpenStageClearPopup()
+    {
+        MonoBehaviour.Instantiate(StageClearPopup, PopupRoot.transform);
     }
 }

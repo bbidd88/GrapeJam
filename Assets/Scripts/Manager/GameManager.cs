@@ -24,6 +24,11 @@ public class GameManager : YManager, YIManagerUpdate
         Time.timeScale = IsPaused ? 0.0f : 1.0f;
     }
 
+    public void RetryStage()
+    {
+        Info.Kill = 0;
+    }
+
     public override void OnAwake()
     {
         SetPause(false);
@@ -46,6 +51,7 @@ public class GameManager : YManager, YIManagerUpdate
     public void OnMounstKill()
     {
         Info.Kill++;
+        CheckStageClear();
     }
 
     public void AddGold(int InGold)
@@ -68,5 +74,14 @@ public class GameManager : YManager, YIManagerUpdate
             return null;
 
         return stageContainer.StageDatas[CurStageIndex];
+    }
+
+    private void CheckStageClear()
+    {
+        int maxKillCount = GetCurStageData()?.MonsterCount ?? 0;
+        if (Info.Kill < maxKillCount)
+            return;
+
+        GameObject.Find("FieldCanvas")?.GetComponent<FieldCanvas>()?.OpenStageClearPopup();
     }
 }

@@ -13,7 +13,7 @@ GameObject:
   - component: {fileID: 3332601755062487035}
   - component: {fileID: 5713359539344405620}
   m_Layer: 5
-  m_Name: ReturnButton
+  m_Name: RetryButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -186,7 +186,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_text: Return
+  m_text: Retry
   m_isRightToLeft: 0
   m_fontAsset: {fileID: 11400000, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
   m_sharedMaterial: {fileID: 2180264, guid: 8f586378b4e144a9851e7b34d9b748ee, type: 2}
@@ -585,6 +585,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a248e07b93e67d14cbf0a4c1510dccbb, type: 3}
   m_Name: 
   m_EditorClassIdentifier: Assembly-CSharp::StageClearPopup
+  RetryButton: {fileID: 5713359539344405620}
+  QuitButton: {fileID: 5470075284245399558}
 --- !u!1 &9054492805740845639
 GameObject:
   m_ObjectHideFlags: 0
