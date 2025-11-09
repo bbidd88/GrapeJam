@@ -1,6 +1,5 @@
 using UnityEngine;
 using UnityEngine.UI;
-using UnityEngine.SceneManagement;
 using TMPro;
 
 public class FieldCanvas : YCanvas
@@ -9,6 +8,12 @@ public class FieldCanvas : YCanvas
     [SerializeField] private Button PasueButton;
     [SerializeField] private TextMeshProUGUI KillCountText;
     
+    // popup
+    [SerializeField] private MenuPoup MenuPoup;
+    [SerializeField] private GameOverPopup GameOverPopup;
+    [SerializeField] private StageClearPopup StageClearPopup;
+
+    private YPopup PopupInst;
 
     void Awake()
     {
@@ -27,11 +32,20 @@ public class FieldCanvas : YCanvas
 
     void PasueButton_OnClick()
     {
-        SceneManager.LoadScene("StartScene");
+        //SceneManager.LoadScene("StartScene");
+        MonoBehaviour.Instantiate(MenuPoup, PopupRoot.transform);
+        YGame.Get<GameManager>().SetPause(true);
     }
     
     void UpdateKillCount()
     {
-        KillCountText.text = YGame.Get<GameManager>().GetInfo().Kill.ToString();
+        var stageData = YGame.Get<GameManager>().GetCurStageData();
+        if (!stageData)
+            return;
+
+        int curKill = YGame.Get<GameManager>().GetInfo().Kill;
+        int maxKill = stageData.MonsterCount;
+        
+        KillCountText.text = string.Format("{0} / {1}", curKill, maxKill);
     }
 }

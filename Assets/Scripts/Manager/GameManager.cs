@@ -16,8 +16,18 @@ public class GameManager : YManager, YIManagerUpdate
     {
         return Info;
     }
+
+    int CurStageIndex = 0;
+
+    public void SetPause(bool IsPaused)
+    {
+        Time.timeScale = IsPaused ? 0.0f : 1.0f;
+    }
+
     public override void OnAwake()
     {
+        SetPause(false);
+        CurStageIndex = 0;
         Info.Kill = 0;
         Info.Exp = 0;
         Info.Gold = 0;
@@ -30,8 +40,7 @@ public class GameManager : YManager, YIManagerUpdate
 
     public void OnUpdate()
     {
-        //
-        
+        //        
     }
     
     public void OnMounstKill()
@@ -54,9 +63,10 @@ public class GameManager : YManager, YIManagerUpdate
         if (!stageContainer)
             return null;
 
-        if (stageContainer.StageDatas.Count < 0)
+        
+        if (stageContainer.StageDatas.Count < CurStageIndex)
             return null;
 
-        return stageContainer.StageDatas[0];
+        return stageContainer.StageDatas[CurStageIndex];
     }
 }
