@@ -472,7 +472,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: '::'
   Player: {fileID: 108505451}
-  Distance: {x: 0, y: 2, z: -5}
+  Distance: 5
 --- !u!114 &988299945
 MonoBehaviour:
   m_ObjectHideFlags: 0
