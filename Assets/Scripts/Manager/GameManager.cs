@@ -33,10 +33,10 @@ public class GameManager : YManager, YIManagerUpdate
         //
         
     }
-
-    public void AddKill(int InKill)
+    
+    public void OnMounstKill()
     {
-        Info.Kill += InKill;
+        Info.Kill++;
     }
 
     public void AddGold(int InGold)

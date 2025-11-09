@@ -51,7 +51,8 @@ public class YGame : MonoBehaviour
     }
 
     private void Start()
-    {        
+    {
+        Debug.Log("YGame - OnStart");
         foreach (YManager manager in Managers.Values)
         {
             manager.OnStart();
