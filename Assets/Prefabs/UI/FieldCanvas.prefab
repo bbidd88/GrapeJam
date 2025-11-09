@@ -987,6 +987,9 @@ MonoBehaviour:
   PopupRoot: {fileID: 9211209992801695443}
   PasueButton: {fileID: 2036917442737538214}
   KillCountText: {fileID: 291605593822466665}
+  MenuPoup: {fileID: 6727419751015973959, guid: be75b4350de8411478100613994524ca, type: 3}
+  GameOverPopup: {fileID: 1259475072439354037, guid: 82221abe613f61244922c92b8a3e2eaf, type: 3}
+  StageClearPopup: {fileID: 6901702634169921737, guid: f4582078677e7d046a94bb33932d2f6e, type: 3}
 --- !u!1 &8935062464891279807
 GameObject:
   m_ObjectHideFlags: 0
