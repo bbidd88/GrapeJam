@@ -1,16 +1,29 @@
 using UnityEngine;
+using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-public class FieldCanvas : MonoBehaviour
+public class FieldCanvas : YCanvas
 {
-    // Start is called once before the first execution of Update after the MonoBehaviour is created
+    [SerializeField] private GameObject PopupRoot;
+    [SerializeField] private Button PasueButton;
+
+    void Awake()
+    {
+        PasueButton.onClick.AddListener(PasueButton_OnClick);
+    }
+    
     void Start()
     {
         
     }
 
-    // Update is called once per frame
     void Update()
     {
         
+    }
+
+    void PasueButton_OnClick()
+    {
+        SceneManager.LoadScene("StartScene");
     }
 }

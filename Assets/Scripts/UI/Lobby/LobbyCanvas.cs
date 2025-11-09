@@ -1,7 +1,8 @@
 using UnityEngine;
 using UnityEngine.UI;
+using UnityEngine.SceneManagement;
 
-public class LobbyCanvas : MonoBehaviour
+public class LobbyCanvas : YCanvas
 {
     [SerializeField] private Button StartButton;
     [SerializeField] private Button QuitButton;
@@ -25,7 +26,7 @@ public class LobbyCanvas : MonoBehaviour
 
     void StartButton_OnClick()
     {
-
+        SceneManager.LoadScene("GameScene");
     }
     void QuitButton_OnClick()
     {
