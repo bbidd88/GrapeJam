@@ -14,3 +14,5 @@ MonoBehaviour:
   m_EditorClassIdentifier: Assembly-CSharp::StageData
   Name: 
   MonsterCount: 10
+  SpownMonsterList:
+  - {fileID: 8166383332998030494, guid: aafb0cef0dd95074f9cdb0c4b9be3522, type: 3}

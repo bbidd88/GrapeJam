@@ -47,4 +47,16 @@ public class GameManager : YManager, YIManagerUpdate
     {
         Info.Exp += InExp;
     }
+
+    public StageData GetCurStageData()
+    {
+        var stageContainer = GameObject.Find("@StageContainer")?.GetComponent<StageDataContainer>();
+        if (!stageContainer)
+            return null;
+
+        if (stageContainer.StageDatas.Count < 0)
+            return null;
+
+        return stageContainer.StageDatas[0];
+    }
 }

@@ -15,30 +15,22 @@ public abstract class YCharacter : MonoBehaviour
     [SerializeField] public CharacterStat Stat;
 
     public int CurHp { get; protected set; } = 0;
-    public int Exp { get; protected set; } = 0;
-    public int Level { get; protected set; } = 1;
-    public int Gold { get; protected set; } = 0;
 
     private void Start()
     {
         CurHp = Stat.MaxHp;
     }
 
-    private void Update()
+    protected virtual void Update()
     {
-        if (IsDeath())
-        {
-            Destroy(gameObject);
-            return;
-        }            
     }
 
     protected virtual void Attack(YCharacter InTarget)
     {
-        InTarget.BeAttecked(Stat.AttackPower);
+        InTarget.Damaged(Stat.AttackPower);
     }
 
-    protected void BeAttecked(int InAttackPower)
+    protected virtual void Damaged(int InAttackPower)
     {
         var damage = InAttackPower - Stat.DefensePower;
         if (damage <= 0)
@@ -48,7 +40,7 @@ public abstract class YCharacter : MonoBehaviour
         if (CurHp > 0)
             return;
 
-        CurHp = 0;        
+        CurHp = 0;
     }
 
     public bool IsDeath()
